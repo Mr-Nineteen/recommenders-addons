@@ -3,7 +3,7 @@
 
 #include "redis_client.h"
 
-using namespace tfra::redis;
+using namespace tensorflow::redis;
 
 int main(int argc, char** argv) {
   if (argc != 4) {

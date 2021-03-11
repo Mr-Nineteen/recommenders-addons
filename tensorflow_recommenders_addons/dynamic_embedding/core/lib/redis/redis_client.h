@@ -1,5 +1,5 @@
-#ifndef TFRA_REDIS_CLIENT_H
-#define TFRA_REDIS_CLIENT_H
+#ifndef TF_REDIS_CLIENT_H
+#define TF_REDIS_CLIENT_H
 
 #include <memory>
 #include <string>
@@ -12,7 +12,7 @@ namespace acl {
   class redis_key;
 }
 
-namespace tfra {
+namespace tensorflow {
 namespace redis {
 
 template <typename T>
@@ -73,6 +73,6 @@ class RedisClient : public RedisClientObj, public TSingleton<RedisClient> {};
 class RedisClientVre : public RedisClientObj, public TSingleton<RedisClientVre> {};
 
 }  // namespace redis
-}  // namespace tfra
+}  // namespace tensorflow
 
-#endif  // TFRA_REDIS_CLIENT_H
+#endif  // TF_REDIS_CLIENT_H

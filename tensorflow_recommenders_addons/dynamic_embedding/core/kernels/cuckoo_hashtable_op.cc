@@ -30,7 +30,7 @@ limitations under the License.
 #include "tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo/cuckoohash_map.hh"
 #include "tensorflow_recommenders_addons/dynamic_embedding/core/lib/redis/redis_client.h"
 
-using namespace tfra::redis;
+using namespace tensorflow::redis;
 
 namespace tensorflow {
 namespace cuckoohash {
@@ -144,7 +144,7 @@ class CuckooHashTableOfTensors final : public LookupInterface {
     LOG(INFO) << "CPU CuckooHashTableOfTensors init: size = " << init_size_;
     table_ = new cuckoohash_map<K, ValueArray>(init_size_);
 
-    // test
+    // TODO test
     const char* redisAddr = "127.0.0.1:6379";
     const char* cmd = "get";
     const char* key = "mmoe_0";

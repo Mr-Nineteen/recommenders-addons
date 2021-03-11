@@ -7,7 +7,7 @@
 
 using namespace std;
 
-namespace tfra {
+namespace tensorflow {
 namespace redis {
 
 bool RedisClientObj::Initialize(const std::string& addr, int maxConns, int connTimeout,
@@ -70,5 +70,5 @@ bool RedisClientObj::SAdd(const std::string& key, const std::string& value) {
   return true;
 }
 
-}  // namespace foundation
-}  // namespace tesseract
+}  // namespace redis
+}  // namespace tensorflow
