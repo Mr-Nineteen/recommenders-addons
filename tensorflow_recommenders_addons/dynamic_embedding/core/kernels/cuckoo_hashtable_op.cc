@@ -16,6 +16,7 @@ limitations under the License.
 #define EIGEN_USE_THREADS
 
 #include "cuckoo_hashtable_op.h"
+#include "redis_client.h"
 
 #include <string>
 #include <type_traits>
@@ -28,7 +29,6 @@ limitations under the License.
 #include "tensorflow/core/lib/gtl/inlined_vector.h"
 #include "tensorflow/core/util/work_sharder.h"
 #include "tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo/cuckoohash_map.hh"
-#include "tensorflow_recommenders_addons/dynamic_embedding/core/lib/redis/redis_client.h"
 
 using namespace tensorflow::redis;
 
