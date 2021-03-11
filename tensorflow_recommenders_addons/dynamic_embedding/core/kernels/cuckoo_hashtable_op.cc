@@ -28,6 +28,9 @@ limitations under the License.
 #include "tensorflow/core/lib/gtl/inlined_vector.h"
 #include "tensorflow/core/util/work_sharder.h"
 #include "tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo/cuckoohash_map.hh"
+#include "tensorflow_recommenders_addons/dynamic_embedding/core/lib/redis/redis_client.h"
+
+using namespace tfra::redis;
 
 namespace tensorflow {
 namespace cuckoohash {
@@ -140,6 +143,21 @@ class CuckooHashTableOfTensors final : public LookupInterface {
     }
     LOG(INFO) << "CPU CuckooHashTableOfTensors init: size = " << init_size_;
     table_ = new cuckoohash_map<K, ValueArray>(init_size_);
+
+    // test
+    const char* redisAddr = "127.0.0.1:6379";
+    const char* cmd = "get";
+    const char* key = "mmoe_0";
+
+    if (!RedisClient::Instance().Initialize(redisAddr, 1, 1, 1)) {
+      std::cout << "redis [" << redisAddr << "] init failed" << std::endl;
+    }
+
+    if (strcmp(cmd, "get") == 0) {
+      std::string res = RedisClient::Instance().Get(key);
+      std::cout << "get [key:" << key << " value:" << res << "]" << std::endl;
+    }
+
   }
 
   ~CuckooHashTableOfTensors() { delete table_; }

@@ -11,5 +11,8 @@ custom_op_library(
         "kernels/cuckoo_hashtable_op.h",
         "ops/cuckoo_hashtable_ops.cc",
     ],
-    deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash"],
+    deps = [
+        "//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash",
+        "//tensorflow_recommenders_addons/dynamic_embedding/core/lib/redis:redis_client",
+        ],
 )
